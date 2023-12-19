@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt")
+const passport = require("passport")
 const usersController = require("./controllers/usersController");
 app.use(cors());
 app.use(express.json());
