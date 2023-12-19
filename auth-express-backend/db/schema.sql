@@ -16,10 +16,10 @@ CREATE TABLE users (
 );
 
 CREATE TABLE registration (
-    resource_id INT PRIMARY KEY AUTO_INCREMENT,
+    resource_id INT SERIAL PRIMARY KEY ,
     user_id INT,
     title VARCHAR(100) NOT NULL,
     content TEXT,
     creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
