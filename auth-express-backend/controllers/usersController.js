@@ -1,5 +1,6 @@
 const express = require("express");
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const {
   getOneUser,
@@ -17,6 +18,10 @@ users.post("/login", async (req, res) => {
       const user = await getOneUserByEmail({ email });
       if (!user) {
         return res.status(400).json({ error: "Invalid credentials." });
+      }
+      const isPasswordMatch = await bcrypt.compare(password, user.password);
+      if (!isPasswordMatch) {
+        return res.status(400).json({ error: "Invalid credentials." })
       }
       const payload = { id: user.id, email: user.email };
       const token = jwt.sign(payload, process.env.PRIVATE_KEY, { expiresIn: '1hr' });
