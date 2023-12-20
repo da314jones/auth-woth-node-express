@@ -39,7 +39,7 @@ users.post("/", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await createUser
 ({ firstname, lastname, email, password: hashedPassword });
-res.statusMessage(201).jon(newUser);
+res.statusMessage(201).json(newUser);
 } catch(err) {res.status(201).json({ error: err.message })}
 });
 
