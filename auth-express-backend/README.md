@@ -1,7 +1,7 @@
 
 
-<!-- PORT='what ever you choose' -->
-<!-- PG_HOST=localhost
+PORT='what ever you choose'
+PG_HOST=localhost
 PG_PORT=5432
 PG_DATABASE=auth_dev
 PG_USER=postgres
@@ -23,4 +23,4 @@ console.log(privateKey);
 or you can run like this as well in the terminal:
 ****
 node generateKey.js
-**** -->
+****
